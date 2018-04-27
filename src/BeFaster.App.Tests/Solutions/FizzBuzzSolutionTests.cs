@@ -46,15 +46,19 @@ namespace BeFaster.App.Tests.Solutions
             return FizzBuzzSolution.FizzBuzz(num);
         }
 
-        [TestCase(1, false)]
-        [TestCase(10, false)]
-        [TestCase(11, true)]
-        [TestCase(55, true)]
-        [TestCase(57, false)]
-        [TestCase(60, false)]
-        [TestCase(100, false)]
-        [TestCase(111, true)]
-        [TestCase(999, true)]
+        [TestCase(1, ExpectedResult = false)]
+        [TestCase(10, ExpectedResult = false)]
+        [TestCase(11, ExpectedResult = true)]
+        [TestCase(55, ExpectedResult = true)]
+        [TestCase(57, ExpectedResult = false)]
+        [TestCase(60, ExpectedResult = false)]
+        [TestCase(100, ExpectedResult = false)]
+        [TestCase(111, ExpectedResult = true)]
+        [TestCase(999, ExpectedResult = true)]
+        [TestCase(979, ExpectedResult = false)]
+        [TestCase(1999, ExpectedResult = false)]
+        [TestCase(9991, ExpectedResult = false)]
+        [TestCase(9999, ExpectedResult = true)]
         public bool FizzBuzzTest_IsDeluxe(int num)
         {
             return FizzBuzzSolution.IsDeluxe(num);
