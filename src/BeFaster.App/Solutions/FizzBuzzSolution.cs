@@ -19,7 +19,7 @@
                 return "fizz";
             }
 
-            return "1";
+            return number.ToString();
         }
     }
 }
