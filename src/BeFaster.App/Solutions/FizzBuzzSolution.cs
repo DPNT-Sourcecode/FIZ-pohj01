@@ -33,19 +33,17 @@ namespace BeFaster.App.Solutions
 
             Func<string> getDeluxAnswer = () =>
             {
+                if (!isFizzDeluxe && !isBuzzDeluxe && !isFakeDeluxe)
+                {
+                    return string.Empty;
+                }
+
                 if (isFizzDeluxe || isBuzzDeluxe)
                 {
                     return "deluxe";
                 }
 
-
-                if (!isFizzDeluxe && !isBuzzDeluxe && !isFakeDeluxe)
-                {
-                    return string.Empty;
-                }
-                
-                return ($"{(isFakeDeluxe || !isBuzzDeluxe || !isFizzDeluxe ? "fake " : "")}" +
-                        $"{(isFizzDeluxe || isBuzzDeluxe || isFakeDeluxe ? "deluxe" : "")}").Trim();
+                return "fake deluxe";
             };
 
             return ($"{(isFizz ? "fizz " : "")}" +
