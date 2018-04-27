@@ -41,7 +41,7 @@
             return num % 5 == 0 || ContainsDigit(num, 5);
         }
 
-        private static bool IsDeluxe(int num)
+        public static bool IsDeluxe(int num)
         {
             if (num < 10)
             {
