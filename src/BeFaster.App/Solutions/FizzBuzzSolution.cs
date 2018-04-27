@@ -38,6 +38,11 @@ namespace BeFaster.App.Solutions
                     return string.Empty;
                 }
 
+                if (isFakeDeluxe)
+                {
+                    return "fake deluxe";
+                }
+
                 if (isFizzDeluxe || isBuzzDeluxe)
                 {
                     return "deluxe";

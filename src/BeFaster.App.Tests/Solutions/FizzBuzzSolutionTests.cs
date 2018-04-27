@@ -12,6 +12,12 @@ namespace BeFaster.App.Tests.Solutions
         [TestCase(20, ExpectedResult = "buzz")]
         [TestCase(21, ExpectedResult = "fizz")]
         [TestCase(30, ExpectedResult = "fizz buzz deluxe")]
+        [TestCase(15, ExpectedResult = "fizz buzz deluxe")]
+        [TestCase(45, ExpectedResult = "fizz buzz deluxe")]
+        [TestCase(135, ExpectedResult = "fizz buzz deluxe")]
+        [TestCase(465, ExpectedResult = "fizz buzz deluxe")]
+        [TestCase(1155, ExpectedResult = "fizz buzz deluxe")]
+        [TestCase(2265, ExpectedResult = "fizz buzz deluxe")]
         public string FizzBuzzTest_NumIsMultiply(int num)
         {
             return FizzBuzzSolution.FizzBuzz(num);
