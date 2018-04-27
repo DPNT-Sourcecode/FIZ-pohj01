@@ -18,7 +18,7 @@ namespace BeFaster.App.Tests.Solutions
         }
 
         [TestCase(2, ExpectedResult = "2")]
-        [TestCase(7, ExpectedResult = "7")]
+        [TestCase(7, ExpectedResult = "fake deluxe")]
         public string FizzBuzzTest_NumIsNotMultiply(int num)
         {
             return FizzBuzzSolution.FizzBuzz(num);
@@ -36,7 +36,7 @@ namespace BeFaster.App.Tests.Solutions
         }
 
         [TestCase(111, ExpectedResult = "fizz fake deluxe")]
-        [TestCase(253, ExpectedResult = "fizz buzz deluxe")]
+        [TestCase(253, ExpectedResult = "fizz buzz")]
         [TestCase(300, ExpectedResult = "fizz buzz deluxe")]
         [TestCase(333, ExpectedResult = "fizz fake deluxe")]
         [TestCase(666, ExpectedResult = "fizz")]
@@ -50,7 +50,7 @@ namespace BeFaster.App.Tests.Solutions
             return FizzBuzzSolution.FizzBuzz(num);
         }
 
-        [TestCase(1, ExpectedResult = false)]
+        [TestCase(1, ExpectedResult = true)]
         [TestCase(10, ExpectedResult = false)]
         [TestCase(11, ExpectedResult = true)]
         [TestCase(55, ExpectedResult = true)]
@@ -65,26 +65,25 @@ namespace BeFaster.App.Tests.Solutions
         [TestCase(9999, ExpectedResult = true)]
         public bool FizzBuzzTest_IsDeluxe(int num)
         {
-            DeluxType? deluxType;
-            return FizzBuzzSolution.IsDeluxe(num, out deluxType);
+            return FizzBuzzSolution.IsFakeDeluxe(num);
         }
 
-        [TestCase(11, ExpectedResult = DeluxType.Fake)]
-        [TestCase(22, ExpectedResult = DeluxType.Normal)]
-        [TestCase(55, ExpectedResult = DeluxType.Fake)]
-        [TestCase(111, ExpectedResult = DeluxType.Fake)]
-        [TestCase(222, ExpectedResult = DeluxType.Normal)]
-        [TestCase(999, ExpectedResult = DeluxType.Fake)]
-        [TestCase(5555, ExpectedResult = DeluxType.Fake)]
-        [TestCase(6666, ExpectedResult = DeluxType.Normal)]
-        [TestCase(9999, ExpectedResult = DeluxType.Fake)]
-        public DeluxType FizzBuzzTest_IsDeluxe_DeluxType(int num)
-        {
-            DeluxType? deluxType;
-            FizzBuzzSolution.IsDeluxe(num, out deluxType);
+        //[TestCase(11, ExpectedResult = DeluxType.Fake)]
+        //[TestCase(22, ExpectedResult = DeluxType.Normal)]
+        //[TestCase(55, ExpectedResult = DeluxType.Fake)]
+        //[TestCase(111, ExpectedResult = DeluxType.Fake)]
+        //[TestCase(222, ExpectedResult = DeluxType.Normal)]
+        //[TestCase(999, ExpectedResult = DeluxType.Fake)]
+        //[TestCase(5555, ExpectedResult = DeluxType.Fake)]
+        //[TestCase(6666, ExpectedResult = DeluxType.Normal)]
+        //[TestCase(9999, ExpectedResult = DeluxType.Fake)]
+        //public DeluxType FizzBuzzTest_IsDeluxe_DeluxType(int num)
+        //{
+        //    DeluxType? deluxType;
+        //    FizzBuzzSolution.IsDeluxe(num, out deluxType);
 
-            return deluxType.Value;
-        }
+        //    return deluxType.Value;
+        //}
 
 
 

@@ -19,10 +19,7 @@ namespace BeFaster.App.Solutions
             bool isBuzzDeluxe;
             bool isBuzz = IsBuzz(number, out isBuzzDeluxe);
 
-            DeluxType? deluxType;
-            IsDeluxe(number, out deluxType);
-
-            bool isFakeDeluxe = deluxType.HasValue && deluxType.Value == DeluxType.Fake;
+            bool isFakeDeluxe = IsFakeDeluxe(number);
 
             if (isFizz == false && isBuzz == false)
             {
@@ -83,26 +80,24 @@ namespace BeFaster.App.Solutions
                 int nextDigit = targetNumber % 10;
                 if (nextDigit != firstDigit)
                 {
-                    deluxType = null;
                     return false;
                 }
 
                 targetNumber /= 10;
             } while (targetNumber > 0);
 
-            deluxType = DetermineDeluxType(num);
-            return true;
+            return num % 2 != 0;
         }
 
-        private static DeluxType DetermineDeluxType(int num)
-        {
-            if (num % 2 == 0)
-            {
-                return DeluxType.Normal;
-            }
+        //private static DeluxType DetermineDeluxType(int num)
+        //{
+        //    if (num % 2 == 0)
+        //    {
+        //        return DeluxType.Normal;
+        //    }
 
-            return DeluxType.Fake;
-        }
+        //    return DeluxType.Fake;
+        //}
 
         private static bool ContainsDigit(int num, int numToCheck)
         {
