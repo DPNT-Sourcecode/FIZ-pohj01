@@ -13,7 +13,7 @@
                 return number.ToString();
             }
 
-
+            return ($"{(isFizz ? "fizz " : "")}{(isBuzz ? "buzz " : "")}{(isDeluxe ? "deluxe" : "")}").Trim();
 
             //if (isFizz && isBuzz && isDeluxe)
             //{
