@@ -5,6 +5,7 @@ namespace BeFaster.App.Solutions
 {
     public enum DeluxType
     {
+        None,
         Normal,
         Fake
     }
@@ -56,7 +57,7 @@ namespace BeFaster.App.Solutions
                     $"{getDeluxAnswer()}").Trim();
         }
 
-        private static bool IsFizz(int num, out bool isDeluxe)
+        private static bool IsFizz(int num, out DeluxType deluxeType)
         {
             bool containsDigit = ContainsDigit(num, 3);
             bool multipleOfThree = num % 3 == 0;
@@ -65,7 +66,7 @@ namespace BeFaster.App.Solutions
             return containsDigit || multipleOfThree;
         }
 
-        private static bool IsBuzz(int num, out bool isDeluxe)
+        private static bool IsBuzz(int num, out DeluxType deluxeType)
         {
             bool containsDigit = ContainsDigit(num, 5);
             bool multipleOfFive = num % 5 == 0;
