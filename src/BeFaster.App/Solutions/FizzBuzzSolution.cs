@@ -68,13 +68,12 @@ namespace BeFaster.App.Solutions
             return containsDigit || multipleOfFive;
         }
 
-        public static bool IsDeluxe(int num, out DeluxType? deluxType)
+        public static bool IsFakeDeluxe(int num)
         {
             int targetNumber = num;
             if (targetNumber < 10)
             {
-                deluxType = null;
-                return false;
+                return targetNumber % 2 != 0;
             }
 
             int firstDigit = targetNumber % 10;

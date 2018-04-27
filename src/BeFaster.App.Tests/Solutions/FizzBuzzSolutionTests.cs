@@ -6,8 +6,8 @@ namespace BeFaster.App.Tests.Solutions
     [TestFixture]
     public class FizzBuzzSolutionTests
     {
-        [TestCase(5, ExpectedResult = "buzz deluxe")]
-        [TestCase(3, ExpectedResult = "fizz deluxe")]
+        [TestCase(5, ExpectedResult = "buzz fake deluxe")]
+        [TestCase(3, ExpectedResult = "fizz fake deluxe")]
         [TestCase(15, ExpectedResult = "fizz buzz deluxe")]
         [TestCase(20, ExpectedResult = "buzz")]
         [TestCase(21, ExpectedResult = "fizz")]
@@ -36,6 +36,7 @@ namespace BeFaster.App.Tests.Solutions
         }
 
         [TestCase(111, ExpectedResult = "fizz fake deluxe")]
+        [TestCase(253, ExpectedResult = "fizz buzz deluxe")]
         [TestCase(300, ExpectedResult = "fizz buzz deluxe")]
         [TestCase(333, ExpectedResult = "fizz fake deluxe")]
         [TestCase(666, ExpectedResult = "fizz")]
