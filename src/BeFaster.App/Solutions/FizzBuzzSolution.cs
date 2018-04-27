@@ -38,9 +38,16 @@ namespace BeFaster.App.Solutions
                     $"{getDeluxAnswer()}").Trim();
         }
 
-        private static bool IsFizz(int num)
+        private static bool IsFizz(int num, out bool isDeluxe)
         {
-            return num % 3 == 0 || ContainsDigit(num, 3);
+            if (num % 3 != 0)
+            {
+                isDeluxe = false;
+                return false;
+            }
+
+            isDeluxe = ContainsDigit(num, 3);
+            return true;
         }
 
         private static bool IsBuzz(int num)
