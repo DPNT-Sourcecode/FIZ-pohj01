@@ -21,5 +21,10 @@
 
             return number.ToString();
         }
+
+        private static bool ContainsDigit(int num, int numToCheck)
+        {
+            return num.ToString().Contains(numToCheck.ToString());
+        }
     }
 }
