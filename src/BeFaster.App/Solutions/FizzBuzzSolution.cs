@@ -7,17 +7,17 @@
             bool isFizz = IsFizz(number);
             bool isBuzz = IsBuzz(number);
 
-            if (number % 15 == 0 || (ContainsDigit(number, 5) && ContainsDigit(number, 3)))
+            if (isFizz && isBuzz)
             {
                 return "fizz buzz";
             }
 
-            if (number % 5 == 0 || ContainsDigit(number, 5))
+            if (isBuzz)
             {
                 return "buzz";
             }
 
-            if (number % 3 == 0 || ContainsDigit(number, 3))
+            if (isFizz)
             {
                 return "fizz";
             }
