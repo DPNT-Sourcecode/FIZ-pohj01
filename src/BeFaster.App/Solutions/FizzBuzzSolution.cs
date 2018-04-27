@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Configuration;
 
 namespace BeFaster.App.Solutions
 {
@@ -12,13 +13,16 @@ namespace BeFaster.App.Solutions
     {
         public static string FizzBuzz(int number)
         {
-            bool isFizz = IsFizz(number);
-            bool isBuzz = IsBuzz(number);
+            bool isFizzDeluxe;
+            bool isFizz = IsFizz(number, out isFizzDeluxe);
+
+            bool isBuzzDeluxe;
+            bool isBuzz = IsBuzz(number, out isBuzzDeluxe);
 
             DeluxType? deluxType;
-            bool isDeluxe = IsDeluxe(number, out deluxType);
+            IsDeluxe(number, out deluxType);
 
-            if (isFizz == false && isBuzz == false && isDeluxe == false)
+            if (isFizz == false && isBuzz == false && !deluxType.HasValue && deluxType.Value != DeluxType.Fake)
             {
                 return number.ToString();
             }
@@ -50,9 +54,16 @@ namespace BeFaster.App.Solutions
             return true;
         }
 
-        private static bool IsBuzz(int num)
+        private static bool IsBuzz(int num, out bool isDeluxe)
         {
-            return num % 5 == 0 || ContainsDigit(num, 5);
+            if (num % 5 != 0)
+            {
+                isDeluxe = false;
+                return false;
+            }
+
+            isDeluxe = ContainsDigit(num, 5);
+            return true;
         }
 
         public static bool IsDeluxe(int num, out DeluxType? deluxType)
