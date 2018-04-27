@@ -14,33 +14,6 @@
             }
 
             return ($"{(isFizz ? "fizz " : "")}{(isBuzz ? "buzz " : "")}{(isDeluxe ? "deluxe" : "")}").Trim();
-
-            //if (isFizz && isBuzz && isDeluxe)
-            //{
-            //    return "fizz buzz deluxe";
-            //}
-
-            //if (isFizz && isBuzz)
-            //{
-            //    return "fizz buzz";
-            //}
-
-            //if (isBuzz)
-            //{
-            //    return "buzz";
-            //}
-
-            //if (isFizz)
-            //{
-            //    return "fizz";
-            //}
-
-            //if (isDeluxe)
-            //{
-            //    return "deluxe";
-            //}
-
-            return number.ToString();
         }
 
         private static bool IsFizz(int num)
