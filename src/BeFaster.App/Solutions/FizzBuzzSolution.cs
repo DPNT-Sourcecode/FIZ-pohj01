@@ -18,11 +18,6 @@
                 return "fizz buzz";
             }
 
-            if (isDeluxe)
-            {
-                return "deluxe";
-            }
-
             if (isBuzz)
             {
                 return "buzz";
@@ -31,6 +26,11 @@
             if (isFizz)
             {
                 return "fizz";
+            }
+
+            if (isDeluxe)
+            {
+                return "deluxe";
             }
 
             return number.ToString();
