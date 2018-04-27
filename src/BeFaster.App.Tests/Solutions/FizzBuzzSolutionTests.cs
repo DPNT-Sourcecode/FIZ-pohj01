@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BeFaster.App.Solutions;
+﻿using BeFaster.App.Solutions;
 using NUnit.Framework;
 
 namespace BeFaster.App.Tests.Solutions
@@ -14,9 +9,12 @@ namespace BeFaster.App.Tests.Solutions
         [TestCase(5, ExpectedResult = "buzz")]
         [TestCase(3, ExpectedResult = "fizz")]
         [TestCase(15, ExpectedResult = "fizz buzz")]
-        public void FizzBuzzTest(int num)
+        [TestCase(20, ExpectedResult = "buzz")]
+        [TestCase(21, ExpectedResult = "fizz")]
+        [TestCase(30, ExpectedResult = "fizz buzz")]
+        public string FizzBuzzTest(int num)
         {
-            FizzBuzzSolution.FizzBuzz(num);
+            return FizzBuzzSolution.FizzBuzz(num);
         }
     }
 }
