@@ -14,42 +14,30 @@ namespace BeFaster.App.Solutions
     {
         public static string FizzBuzz(int number)
         {
-            bool isFizzDeluxe;
-            bool isFizz = IsFizz(number, out isFizzDeluxe);
+            DeluxType fizzDeluxType;
+            bool isFizz = IsFizz(number, out fizzDeluxType);
 
-            bool isBuzzDeluxe;
-            bool isBuzz = IsBuzz(number, out isBuzzDeluxe);
-
-            bool isFakeDeluxe = IsFakeDeluxe(number);
+            DeluxType buzzDeluxType;
+            bool isBuzz = IsBuzz(number, out buzzDeluxType);
 
             if (isFizz == false && isBuzz == false)
             {
-                if (isFakeDeluxe)
-                {
-                    return "fake deluxe";
-                }
-
                 return number.ToString();
             }
 
             Func<string> getDeluxAnswer = () =>
             {
-                if (!isFizzDeluxe && !isBuzzDeluxe && !isFakeDeluxe)
-                {
-                    return string.Empty;
-                }
-
-                if (isFakeDeluxe)
+                if (fizzDeluxType == DeluxType.Fake || buzzDeluxType == DeluxType.Fake)
                 {
                     return "fake deluxe";
                 }
 
-                if (isFizzDeluxe || isBuzzDeluxe)
+                if (fizzDeluxType == DeluxType.Normal || buzzDeluxType == DeluxType.Normal)
                 {
                     return "deluxe";
                 }
 
-                return "fake deluxe";
+                return string.Empty;
             };
 
             return ($"{(isFizz ? "fizz " : "")}" +
