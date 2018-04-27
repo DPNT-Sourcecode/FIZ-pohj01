@@ -84,5 +84,8 @@ namespace BeFaster.App.Tests.Solutions
 
             return deluxType.Value;
         }
+
+
+
     }
 }

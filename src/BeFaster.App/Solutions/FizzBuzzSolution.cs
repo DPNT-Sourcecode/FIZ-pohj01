@@ -29,12 +29,13 @@ namespace BeFaster.App.Solutions
 
             Func<string> getDeluxAnswer = () =>
             {
-                if (deluxType.HasValue == false)
+                if (!isFizzDeluxe && !isBuzzDeluxe && deluxType.HasValue == false)
                 {
                     return string.Empty;
                 }
 
-                return deluxType.Value == DeluxType.Normal ? "deluxe" : "fake deluxe";
+                return ($"{(deluxType.HasValue && deluxType.Value == DeluxType.Fake ? "fake" : "")}" +
+                        $"{(isFizzDeluxe || isBuzzDeluxe ? "deluxe" : "")}").Trim();
             };
 
             return ($"{(isFizz ? "fizz " : "")}" +
