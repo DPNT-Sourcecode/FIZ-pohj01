@@ -1,4 +1,6 @@
-﻿namespace BeFaster.App.Solutions
+﻿using System;
+
+namespace BeFaster.App.Solutions
 {
     public enum DeluxType
     {
@@ -20,6 +22,16 @@
             {
                 return number.ToString();
             }
+
+            Func<string> getDeluxAnswer = () =>
+            {
+                if (deluxType.HasValue == false)
+                {
+                    return string.Empty;
+                }
+
+                return deluxType.Value == DeluxType.Normal ? "deluxe" : "fake";
+            };
 
             return ($"{(isFizz ? "fizz " : "")}" +
                     $"{(isBuzz ? "buzz " : "")}" +
