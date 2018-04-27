@@ -45,26 +45,20 @@ namespace BeFaster.App.Solutions
 
         private static bool IsFizz(int num, out bool isDeluxe)
         {
-            if (num % 3 != 0)
-            {
-                isDeluxe = false;
-                return false;
-            }
+            bool containsDigit = ContainsDigit(num, 3);
+            bool multipleOfThree = num % 3 == 0;
 
-            isDeluxe = ContainsDigit(num, 3);
-            return true;
+            isDeluxe = containsDigit && multipleOfThree;
+            return containsDigit || multipleOfThree;
         }
 
         private static bool IsBuzz(int num, out bool isDeluxe)
         {
-            if (num % 5 != 0)
-            {
-                isDeluxe = false;
-                return false;
-            }
+            bool containsDigit = ContainsDigit(num, 5);
+            bool multipleOfFive = num % 5 == 0;
 
-            isDeluxe = ContainsDigit(num, 5);
-            return true;
+            isDeluxe = containsDigit && multipleOfFive;
+            return containsDigit || multipleOfFive;
         }
 
         public static bool IsDeluxe(int num, out DeluxType? deluxType)
