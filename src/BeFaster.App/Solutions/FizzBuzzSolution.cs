@@ -29,7 +29,7 @@ namespace BeFaster.App.Solutions
 
             Func<string> getDeluxAnswer = () =>
             {
-                if (!isFizzDeluxe && !isBuzzDeluxe && deluxType.HasValue == false)
+                if (!isFizzDeluxe && !isBuzzDeluxe)
                 {
                     return string.Empty;
                 }
