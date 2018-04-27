@@ -1,5 +1,11 @@
 ﻿namespace BeFaster.App.Solutions
 {
+    public enum DeluxType
+    {
+        Normal,
+        Fake
+    }
+
     public static class FizzBuzzSolution
     {
         public static string FizzBuzz(int number)
@@ -26,27 +32,40 @@
             return num % 5 == 0 || ContainsDigit(num, 5);
         }
 
-        public static bool IsDeluxe(int num)
+        public static bool IsDeluxe(int num, out DeluxType? deluxType)
         {
-            if (num < 10)
+            int targetNumber = num;
+            if (targetNumber < 10)
             {
+                deluxType = null;
                 return false;
             }
 
-            int firstDigit = num % 10;
-            num /= 10;
+            int firstDigit = targetNumber % 10;
+            targetNumber /= 10;
             do
             {
-                int nextDigit = num % 10;
+                int nextDigit = targetNumber % 10;
                 if (nextDigit != firstDigit)
                 {
+                    deluxType = null;
                     return false;
                 }
 
-                num /= 10;
-            } while (num > 0);
+                targetNumber /= 10;
+            } while (targetNumber > 0);
+
+            if (num % 2 == 0)
 
             return true;
+        }
+
+        private static DeluxType DetermineDeluxType(int num)
+        {
+            if (num % 2 == 0)
+            {
+                return DeluxType.Normal;
+            }
         }
 
         private static bool ContainsDigit(int num, int numToCheck)
