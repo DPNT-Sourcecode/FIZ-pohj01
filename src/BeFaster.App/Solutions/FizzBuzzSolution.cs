@@ -35,6 +35,11 @@
             return num % 5 == 0 || ContainsDigit(num, 5);
         }
 
+        private static bool IsDeluxe(int num)
+        {
+            return num > 10 && 
+        }
+
         private static bool ContainsDigit(int num, int numToCheck)
         {
             return num.ToString().Contains(numToCheck.ToString());
