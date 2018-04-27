@@ -22,7 +22,7 @@ namespace BeFaster.App.Solutions
             DeluxType? deluxType;
             IsDeluxe(number, out deluxType);
 
-            if (isFizz == false && isBuzz == false && !deluxType.HasValue && deluxType.Value != DeluxType.Fake)
+            if (isFizz == false && isBuzz == false && !(deluxType.HasValue && deluxType.Value == DeluxType.Fake))
             {
                 return number.ToString();
             }
