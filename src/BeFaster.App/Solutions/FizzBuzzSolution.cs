@@ -30,12 +30,12 @@ namespace BeFaster.App.Solutions
                     return string.Empty;
                 }
 
-                return deluxType.Value == DeluxType.Normal ? "deluxe" : "fake";
+                return deluxType.Value == DeluxType.Normal ? "deluxe" : "fake delux";
             };
 
             return ($"{(isFizz ? "fizz " : "")}" +
                     $"{(isBuzz ? "buzz " : "")}" +
-                    $"{(isDeluxe && deluxType.Value == DeluxType.Normal ? "deluxe" : "fake")}").Trim();
+                    $"{getDeluxAnswer()}").Trim();
         }
 
         private static bool IsFizz(int num)
