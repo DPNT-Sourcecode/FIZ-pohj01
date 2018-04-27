@@ -59,45 +59,51 @@ namespace BeFaster.App.Solutions
 
         private static bool IsFizz(int num, out DeluxType deluxeType)
         {
-            bool containsDigit = ContainsDigit(num, 3);
-            bool multipleOfThree = num % 3 == 0;
-
-            isDeluxe = containsDigit && multipleOfThree && num > 10;
-            return containsDigit || multipleOfThree;
+            return IsMultipleOfAndIsDelux(num, 3, out deluxeType);
         }
 
         private static bool IsBuzz(int num, out DeluxType deluxeType)
         {
-            bool containsDigit = ContainsDigit(num, 5);
-            bool multipleOfFive = num % 5 == 0;
-
-            isDeluxe = containsDigit && multipleOfFive && num > 10;
-            return containsDigit || multipleOfFive;
+            return IsMultipleOfAndIsDelux(num, 5, out deluxeType);
         }
 
-        public static bool IsFakeDeluxe(int num)
+        private static bool IsMultipleOfAndIsDelux(int num, int multipleOf,  out DeluxType deluxeType)
         {
-            int targetNumber = num;
-            if (targetNumber < 10)
+            deluxeType = DeluxType.None;
+            bool containsDigit = ContainsDigit(num, multipleOf);
+            bool multipleOfThree = num % multipleOf == 0;
+
+            if (containsDigit && multipleOfThree)
             {
-                return false;
+                deluxeType = num % 2 == 0 ? DeluxType.Normal : DeluxType.Fake;
             }
 
-            int firstDigit = targetNumber % 10;
-            targetNumber /= 10;
-            do
-            {
-                int nextDigit = targetNumber % 10;
-                if (nextDigit != firstDigit)
-                {
-                    return false;
-                }
-
-                targetNumber /= 10;
-            } while (targetNumber > 0);
-
-            return num % 2 != 0;
+            return containsDigit || multipleOfThree;
         }
+
+        //public static bool IsFakeDeluxe(int num)
+        //{
+        //    int targetNumber = num;
+        //    if (targetNumber < 10)
+        //    {
+        //        return false;
+        //    }
+
+        //    int firstDigit = targetNumber % 10;
+        //    targetNumber /= 10;
+        //    do
+        //    {
+        //        int nextDigit = targetNumber % 10;
+        //        if (nextDigit != firstDigit)
+        //        {
+        //            return false;
+        //        }
+
+        //        targetNumber /= 10;
+        //    } while (targetNumber > 0);
+
+        //    return num % 2 != 0;
+        //}
 
         //private static DeluxType DetermineDeluxType(int num)
         //{
