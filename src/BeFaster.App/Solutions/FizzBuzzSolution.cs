@@ -30,7 +30,7 @@ namespace BeFaster.App.Solutions
                     return string.Empty;
                 }
 
-                return deluxType.Value == DeluxType.Normal ? "deluxe" : "fake delux";
+                return deluxType.Value == DeluxType.Normal ? "deluxe" : "fake deluxe";
             };
 
             return ($"{(isFizz ? "fizz " : "")}" +
