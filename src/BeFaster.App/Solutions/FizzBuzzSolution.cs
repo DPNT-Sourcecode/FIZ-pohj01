@@ -4,7 +4,7 @@
     {
         public static string FizzBuzz(int number)
         {
-            if (number % 15 == 0 && ContainsDigit(number, 5) && ContainsDigit(number, 3))
+            if (number % 15 == 0 || (ContainsDigit(number, 5) && ContainsDigit(number, 3)))
             {
                 return "fizz buzz";
             }
