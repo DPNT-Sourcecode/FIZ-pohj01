@@ -12,14 +12,18 @@
         {
             bool isFizz = IsFizz(number);
             bool isBuzz = IsBuzz(number);
-            bool isDeluxe = IsDeluxe(number);
+
+            DeluxType? deluxType;
+            bool isDeluxe = IsDeluxe(number, out deluxType);
 
             if (isFizz == false && isBuzz == false && isDeluxe == false)
             {
                 return number.ToString();
             }
 
-            return ($"{(isFizz ? "fizz " : "")}{(isBuzz ? "buzz " : "")}{(isDeluxe ? "deluxe" : "")}").Trim();
+            return ($"{(isFizz ? "fizz " : "")}" +
+                    $"{(isBuzz ? "buzz " : "")}" +
+                    $"{(isDeluxe && deluxType.Value == DeluxType.Normal ? "deluxe" : "fake")}").Trim();
         }
 
         private static bool IsFizz(int num)
@@ -55,8 +59,7 @@
                 targetNumber /= 10;
             } while (targetNumber > 0);
 
-            if (num % 2 == 0)
-
+            deluxType = DetermineDeluxType(num);
             return true;
         }
 
@@ -66,6 +69,8 @@
             {
                 return DeluxType.Normal;
             }
+
+            return DeluxType.Fake;
         }
 
         private static bool ContainsDigit(int num, int numToCheck)

@@ -63,7 +63,8 @@ namespace BeFaster.App.Tests.Solutions
         [TestCase(9999, ExpectedResult = true)]
         public bool FizzBuzzTest_IsDeluxe(int num)
         {
-            return FizzBuzzSolution.IsDeluxe(num);
+            DeluxType? deluxType;
+            return FizzBuzzSolution.IsDeluxe(num, out deluxType);
         }
     }
 }
