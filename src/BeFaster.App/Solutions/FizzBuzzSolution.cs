@@ -18,6 +18,11 @@
                 return "fizz buzz";
             }
 
+            if (isDeluxe)
+            {
+                return "deluxe";
+            }
+
             if (isBuzz)
             {
                 return "buzz";

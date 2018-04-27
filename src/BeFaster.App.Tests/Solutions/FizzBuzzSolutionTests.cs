@@ -39,8 +39,8 @@ namespace BeFaster.App.Tests.Solutions
         [TestCase(300, ExpectedResult = "fizz buzz")]
         [TestCase(333, ExpectedResult = "fizz")]
         [TestCase(555, ExpectedResult = "fizz buzz deluxe")]
-        [TestCase(1111, ExpectedResult = "1111")]
-        [TestCase(7777, ExpectedResult = "7777")]
+        [TestCase(1111, ExpectedResult = "deluxe")]
+        [TestCase(7777, ExpectedResult = "deluxe")]
         public string FizzBuzzTest_FIZ_R3(int num)
         {
             return FizzBuzzSolution.FizzBuzz(num);
