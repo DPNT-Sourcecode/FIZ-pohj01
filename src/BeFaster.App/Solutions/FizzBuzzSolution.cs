@@ -37,7 +37,18 @@
 
         private static bool IsDeluxe(int num)
         {
-            return num > 10 && 
+            if (num < 10)
+            {
+                return false;
+            }
+
+            int firstDigit = num % 10;
+            num /= 10;
+            do
+            {
+                int nextDigit = num % 10;
+
+            } while (b);
         }
 
         private static bool ContainsDigit(int num, int numToCheck)
