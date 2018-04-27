@@ -61,7 +61,7 @@ namespace BeFaster.App.Solutions
             bool containsDigit = ContainsDigit(num, 3);
             bool multipleOfThree = num % 3 == 0;
 
-            isDeluxe = containsDigit && multipleOfThree;
+            isDeluxe = containsDigit && multipleOfThree && num > 10;
             return containsDigit || multipleOfThree;
         }
 
@@ -70,7 +70,7 @@ namespace BeFaster.App.Solutions
             bool containsDigit = ContainsDigit(num, 5);
             bool multipleOfFive = num % 5 == 0;
 
-            isDeluxe = containsDigit && multipleOfFive;
+            isDeluxe = containsDigit && multipleOfFive && num > 10;
             return containsDigit || multipleOfFive;
         }
 
