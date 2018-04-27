@@ -8,30 +8,37 @@
             bool isBuzz = IsBuzz(number);
             bool isDeluxe = IsDeluxe(number);
 
-            if (isFizz && isBuzz && isDeluxe)
+            if (isFizz == false && isBuzz == false && isDeluxe == false)
             {
-                return "fizz buzz deluxe";
+                return number.ToString();
             }
 
-            if (isFizz && isBuzz)
-            {
-                return "fizz buzz";
-            }
 
-            if (isBuzz)
-            {
-                return "buzz";
-            }
 
-            if (isFizz)
-            {
-                return "fizz";
-            }
+            //if (isFizz && isBuzz && isDeluxe)
+            //{
+            //    return "fizz buzz deluxe";
+            //}
 
-            if (isDeluxe)
-            {
-                return "deluxe";
-            }
+            //if (isFizz && isBuzz)
+            //{
+            //    return "fizz buzz";
+            //}
+
+            //if (isBuzz)
+            //{
+            //    return "buzz";
+            //}
+
+            //if (isFizz)
+            //{
+            //    return "fizz";
+            //}
+
+            //if (isDeluxe)
+            //{
+            //    return "deluxe";
+            //}
 
             return number.ToString();
         }
