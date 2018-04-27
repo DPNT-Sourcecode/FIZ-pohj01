@@ -22,9 +22,11 @@ namespace BeFaster.App.Solutions
             DeluxType? deluxType;
             IsDeluxe(number, out deluxType);
 
+            bool isFakeDeluxe = deluxType.HasValue && deluxType.Value == DeluxType.Fake;
+
             if (isFizz == false && isBuzz == false)
             {
-                if (deluxType.HasValue && deluxType.Value == DeluxType.Fake)
+                if (isFakeDeluxe)
                 {
                     return "fake deluxe";
                 }
@@ -34,13 +36,13 @@ namespace BeFaster.App.Solutions
 
             Func<string> getDeluxAnswer = () =>
             {
-                if (!isFizzDeluxe && !isBuzzDeluxe)
+                if (!isFizzDeluxe && !isBuzzDeluxe && !isFakeDeluxe)
                 {
                     return string.Empty;
                 }
-
-                return ($"{(deluxType.HasValue && deluxType.Value == DeluxType.Fake ? "fake " : "")}" +
-                        $"{(isFizzDeluxe || isBuzzDeluxe ? "deluxe" : "")}").Trim();
+                
+                return ($"{(isFakeDeluxe ? "fake " : "")}" +
+                        $"{(isFizzDeluxe || isBuzzDeluxe || isFakeDeluxe ? "deluxe" : "")}").Trim();
             };
 
             return ($"{(isFizz ? "fizz " : "")}" +

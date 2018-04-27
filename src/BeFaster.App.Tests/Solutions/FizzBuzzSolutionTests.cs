@@ -6,12 +6,12 @@ namespace BeFaster.App.Tests.Solutions
     [TestFixture]
     public class FizzBuzzSolutionTests
     {
-        [TestCase(5, ExpectedResult = "buzz")]
-        [TestCase(3, ExpectedResult = "fizz")]
-        [TestCase(15, ExpectedResult = "fizz buzz")]
+        [TestCase(5, ExpectedResult = "buzz deluxe")]
+        [TestCase(3, ExpectedResult = "fizz deluxe")]
+        [TestCase(15, ExpectedResult = "fizz buzz deluxe")]
         [TestCase(20, ExpectedResult = "buzz")]
         [TestCase(21, ExpectedResult = "fizz")]
-        [TestCase(30, ExpectedResult = "fizz buzz")]
+        [TestCase(30, ExpectedResult = "fizz buzz deluxe")]
         public string FizzBuzzTest_NumIsMultiply(int num)
         {
             return FizzBuzzSolution.FizzBuzz(num);
@@ -35,7 +35,7 @@ namespace BeFaster.App.Tests.Solutions
             return FizzBuzzSolution.FizzBuzz(num);
         }
 
-        [TestCase(111, ExpectedResult = "fizz")]
+        [TestCase(111, ExpectedResult = "fizz fake deluxe")]
         [TestCase(300, ExpectedResult = "fizz buzz deluxe")]
         [TestCase(333, ExpectedResult = "fizz fake deluxe")]
         [TestCase(666, ExpectedResult = "fizz")]
