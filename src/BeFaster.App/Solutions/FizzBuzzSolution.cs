@@ -6,6 +6,12 @@
         {
             bool isFizz = IsFizz(number);
             bool isBuzz = IsBuzz(number);
+            bool isDeluxe = IsDeluxe(number);
+
+            if (isFizz && isBuzz && isDeluxe)
+            {
+                return "fizz buzz deluxe";
+            }
 
             if (isFizz && isBuzz)
             {
@@ -47,8 +53,15 @@
             do
             {
                 int nextDigit = num % 10;
+                if (nextDigit != firstDigit)
+                {
+                    return false;
+                }
 
-            } while (b);
+                num /= 10;
+            } while (num > 0);
+
+            return true;
         }
 
         private static bool ContainsDigit(int num, int numToCheck)
