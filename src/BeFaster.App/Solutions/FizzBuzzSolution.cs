@@ -38,7 +38,7 @@ namespace BeFaster.App.Solutions
                     return string.Empty;
                 }
                 
-                return ($"{(isFakeDeluxe ? "fake " : "")}" +
+                return ($"{(isFakeDeluxe || !isBuzzDeluxe || !isFakeDeluxe ? "fake " : "")}" +
                         $"{(isFizzDeluxe || isBuzzDeluxe || isFakeDeluxe ? "deluxe" : "")}").Trim();
             };
 
@@ -70,7 +70,7 @@ namespace BeFaster.App.Solutions
             int targetNumber = num;
             if (targetNumber < 10)
             {
-                return targetNumber % 2 != 0;
+                return false;
             }
 
             int firstDigit = targetNumber % 10;

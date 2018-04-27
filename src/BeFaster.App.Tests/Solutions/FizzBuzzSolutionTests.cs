@@ -17,8 +17,9 @@ namespace BeFaster.App.Tests.Solutions
             return FizzBuzzSolution.FizzBuzz(num);
         }
 
+        [TestCase(1, ExpectedResult = "1")]
         [TestCase(2, ExpectedResult = "2")]
-        [TestCase(7, ExpectedResult = "fake deluxe")]
+        [TestCase(7, ExpectedResult = "7")]
         public string FizzBuzzTest_NumIsNotMultiply(int num)
         {
             return FizzBuzzSolution.FizzBuzz(num);
@@ -50,7 +51,7 @@ namespace BeFaster.App.Tests.Solutions
             return FizzBuzzSolution.FizzBuzz(num);
         }
 
-        [TestCase(1, ExpectedResult = true)]
+        [TestCase(1, ExpectedResult = false)]
         [TestCase(10, ExpectedResult = false)]
         [TestCase(11, ExpectedResult = true)]
         [TestCase(55, ExpectedResult = true)]
